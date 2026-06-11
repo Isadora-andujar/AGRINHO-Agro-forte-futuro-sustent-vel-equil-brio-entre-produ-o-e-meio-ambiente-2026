@@ -1,64 +1,86 @@
+// Mobile Menu Toggle
+const mobileMenu = document.querySelector('.mobile-menu');
+const navLinks = document.querySelector('.nav-links');
 
-// ===== SMOOTH SCROLL PARA LINKS INTERNOS =====
+mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    if (navLinks.classList.contains('active')) {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '70px';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.backgroundColor = 'white';
+        navLinks.style.padding = '2rem';
+        navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    } else {
+        navLinks.style.display = 'none';
+    }
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        navLinks.style.display = 'none';
+    });
+});
+
+// Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        
-        // Evita comportamento padrão se for apenas "#" ou link vazio
-        if (targetId === '#' || targetId === '') return;
-        
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            e.preventDefault();
-            targetElement.scrollIntoView({
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
-            
-            // Atualiza a URL sem recarregar a página (opcional)
-            history.pushState(null, null, targetId);
         }
     });
 });
 
-// ===== BOTÃO CTA COM ALERTA INTERATIVO =====
-const ctaButton = document.getElementById('ctaButton');
-if (ctaButton) {
-    ctaButton.addEventListener('click', function(e) {
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(255,255,255,0.98)';
+        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+    } else {
+        header.style.background = 'rgba(255,255,255,0.95)';
+        header.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    }
+});
+
+// Contact form submission
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        const formData = new FormData(contactForm);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
         
-        // Cria um elemento de notificação temporária
-        const notification = document.createElement('div');
-        notification.textContent = '🌱 Obrigado por se comprometer com um futuro sustentável! 🌍';
-        notification.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #165e28;
-            color: white;
-            padding: 16px 24px;
-            border-radius: 48px;
-            font-weight: 600;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            z-index: 9999;
-            animation: slideIn 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Remove a notificação após 3 segundos
-        setTimeout(() => {
-            notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        }, 3000);
+        // Simulate form submission
+        alert(`Obrigado ${name}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`);
+        contactForm.reset();
     });
 }
 
-// ===== ANIMAÇÃO DE ENTRADA PARA CARDS (SCROLL REVEAL SIMPLES) =====
+// Newsletter form submission
+const newsletterForm = document.getElementById('newsletterForm');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input').value;
+        alert(`Obrigado por se inscrever! Enviaremos novidades para ${email}`);
+        newsletterForm.reset();
+    });
+}
+
+// Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -69,63 +91,61 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Aplica animação aos cards e itens de desafio
-document.querySelectorAll('.card, .desafio-item, .equilibrio-card').forEach(el => {
+// Observe cards and tech items
+document.querySelectorAll('.card, .tech-item, .stat').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transition = 'all 0.6s ease';
     observer.observe(el);
 });
 
-// ===== HEADER SCROLL EFFECT (MUDA OPACIDADE) =====
-let lastScroll = 0;
-const header = document.querySelector('header');
+// Add counter animation for stats
+function animateNumber(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        element.textContent = current + (element.dataset.suffix || '');
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        header.style.backgroundColor = '#0a3217';
-        header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
-    } else {
-        header.style.backgroundColor = '#0a3217';
-        header.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.08)';
-    }
-    
-    lastScroll = currentScroll;
+// Trigger counter animation when stats come into view
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const value = stat.textContent;
+                const number = parseInt(value);
+                if (!isNaN(number)) {
+                    stat.dataset.suffix = value.replace(number, '');
+                    animateNumber(stat, 0, number, 2000);
+                }
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const statsSection = document.querySelector('.stats');
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
+
+// Add loading animation
+window.addEventListener('load', () => {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease';
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100);
 });
-
-// ===== ANIMAÇÃO CSS PARA NOTIFICAÇÃO =====
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// ===== LOG NO CONSOLE (APENAS PARA INSPEÇÃO) =====
-console.log('🌱 Agro Forte, Futuro Sustentável - Site carregado com sucesso!');
