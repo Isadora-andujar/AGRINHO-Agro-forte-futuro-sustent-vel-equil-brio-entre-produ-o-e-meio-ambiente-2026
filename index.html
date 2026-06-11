@@ -1,206 +1,542 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="Agro Forte, Futuro Sustentável: equilíbrio entre produção agrícola de alta performance e preservação ambiental. Tecnologia, ILPF, bioinsumos e práticas regenerativas.">
-    <meta name="author" content="Agro Forte">
-    <title>Agro Forte | Futuro Sustentável</title>
-    
-    <!-- Google Fonts + Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- CSS Principal -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Agro Forte | Modo Gamer: Missão Sustentável</title>
+  <!-- Google Fonts (Orbitron para estilo gamer) + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0c0b;
+      background-image: radial-gradient(circle at 15% 30%, rgba(30, 80, 30, 0.2) 0%, #030503 90%);
+      color: #d0ffd0;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* estilo gamer neon */
+    .glow-text {
+      text-shadow: 0 0 5px #87f76e, 0 0 10px #4f9e2e;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Header cyber */
+    header {
+      background: rgba(5, 15, 5, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid #4cd137;
+      box-shadow: 0 0 12px rgba(76, 209, 55, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 16px 0;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #b3ff8f, #3ccf1e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 8px #3ccf1e60;
+    }
+
+    .logo span {
+      color: #b6ff7a;
+      text-shadow: 0 0 5px #aaff66;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-family: 'Orbitron', monospace;
+      font-weight: 500;
+      color: #b4ffb0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: 0.2s;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #f0ff66;
+      text-shadow: 0 0 4px #b3ff66;
+      border-bottom-color: #90ff4e;
+    }
+
+    /* Hero - estilo boss battle */
+    .hero {
+      background: radial-gradient(ellipse at 70% 30%, #142c12, #020703);
+      padding: 90px 0;
+      text-align: center;
+      border-bottom: 2px solid #5cff3a;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.8), 0 0 18px #2eff5e30;
+    }
+
+    .hero h2 {
+      font-family: 'Orbitron', monospace;
+      font-size: 3.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #e5ffb3, #6eff3c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 720px;
+      margin: 0 auto 32px;
+      color: #caffb9;
+      text-shadow: 0 0 2px #000;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: rgba(30, 80, 30, 0.7);
+      border: 2px solid #71ff52;
+      color: #deffcf;
+      padding: 12px 32px;
+      border-radius: 0px;
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      text-decoration: none;
+      backdrop-filter: blur(4px);
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 0 6px #58ff3a;
+    }
+
+    .btn-primary:hover {
+      background: #4cd137cc;
+      border-color: #ffff99;
+      box-shadow: 0 0 14px #86ff6b;
+      transform: scale(1.02);
+      color: black;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #79f75a;
+      color: #c6ffb0;
+      padding: 10px 32px;
+      font-family: 'Orbitron', monospace;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 0 0 4px #5eff40;
+    }
+
+    .btn-outline:hover {
+      background: #77ff5544;
+      border-color: #ffff88;
+      text-shadow: 0 0 3px black;
+    }
+
+    /* seções */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px dashed #3b8c2a;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 2px;
+      background: linear-gradient(125deg, #caffa0, #5cd632);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px auto;
+      font-size: 1.1rem;
+      color: #b9e6a8;
+    }
+
+    /* Cards estilo power-up */
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .card {
+      background: #0e1f0cd9;
+      backdrop-filter: blur(2px);
+      border: 1px solid #5bff3e;
+      border-radius: 16px;
+      padding: 32px 24px;
+      flex: 1 1 280px;
+      transition: 0.25s;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,255,0,0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #caff7a;
+      box-shadow: 0 0 22px #86ff7a;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      color: #7aff55;
+      text-shadow: 0 0 5px #32cd32;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+      color: #d9ffc4;
+    }
+
+    /* Tabela neon */
+    .table-wrapper {
+      background: #081207cc;
+      border-radius: 20px;
+      overflow-x: auto;
+      border: 1px solid #52d63e;
+      box-shadow: 0 0 12px #2aa51e;
+    }
+
+    .sustentabilidade-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Inter', monospace;
+    }
+
+    .sustentabilidade-table th,
+    .sustentabilidade-table td {
+      padding: 18px 20px;
+      text-align: left;
+      border-bottom: 1px solid #3d9440;
+      color: #ddffcf;
+    }
+
+    .sustentabilidade-table th {
+      background: #173d14;
+      font-family: 'Orbitron', monospace;
+      color: #c7ff94;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .badge {
+      background: #193d16;
+      border: 1px solid #76ff55;
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-weight: bold;
+      color: #c5ffa2;
+    }
+
+    /* Equilíbrio level up */
+    .equilibrio-card {
+      background: #0e2210b3;
+      border: 2px solid #61ff47;
+      border-radius: 32px;
+      padding: 48px 40px;
+      margin: 20px 0;
+      box-shadow: 0 0 18px #38ff1e40;
+    }
+
+    .grid-2 {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .text-col h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 2rem;
+      color: #aaff86;
+    }
+
+    .icon-list-sust {
+      list-style: none;
+      padding: 0;
+    }
+
+    .icon-list-sust li {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-list-sust i {
+      color: #7aff5e;
+      font-size: 1.5rem;
+    }
+
+    /* Desafios grid - estilo conquistas */
+    .desafios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .desafio-item {
+      background: #0a1a07;
+      border: 1px solid #61d63e;
+      border-radius: 24px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .desafio-item i {
+      font-size: 2.5rem;
+      color: #f1c40f;
+      text-shadow: 0 0 6px #ffcc33;
+    }
+
+    /* CTA boss final */
+    .cta-block {
+      background: #092006e0;
+      border: 2px solid #8aff6e;
+      text-align: center;
+      border-radius: 40px;
+      margin: 40px auto 60px;
+      padding: 60px 32px;
+      box-shadow: 0 0 25px #6eff4b;
+    }
+
+    .btn-cta {
+      background: #142b0f;
+      border: 2px solid #cbff97;
+      color: #ecffd3;
+      padding: 12px 36px;
+      font-family: 'Orbitron', monospace;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s;
+    }
+
+    .btn-cta:hover {
+      background: #69ff4d;
+      color: #032000;
+      box-shadow: 0 0 20px #b2ff82;
+    }
+
+    footer {
+      background: #030703;
+      border-top: 2px solid #60ff3c;
+      padding: 40px 0;
+      text-align: center;
+      color: #a5e096;
+    }
+
+    @media (max-width: 780px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+      .equilibrio-card {
+        padding: 28px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="container nav-bar">
-            <div class="logo">
-                <h1>Agro<span>Forte</span></h1>
-            </div>
-            <div class="nav-links">
-                <a href="#conceito">Conceito</a>
-                <a href="#praticas">Práticas</a>
-                <a href="#equilibrio">Equilíbrio</a>
-                <a href="#desafios">Desafios</a>
-                <a href="#futuro">Futuro</a>
-            </div>
+<header>
+  <div class="container nav-bar">
+    <div class="logo">
+      <h1>AGRO<span>FORTE</span> <span style="font-size:0.8rem;">[GV]</span></h1>
+    </div>
+    <div class="nav-links">
+      <a href="#conceito"><i class="fas fa-gamepad"></i> STATUS</a>
+      <a href="#praticas">SKILLS</a>
+      <a href="#equilibrio">BOSS</a>
+      <a href="#desafios">QUESTS</a>
+      <a href="#futuro">RANK S</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h2><i class="fas fa-leaf"></i> AGRO FORTE <br> FUTURO SUSTENTÁVEL</h2>
+      <p>[ MODO GAMER ATIVADO ] Equilíbrio entre produção de alto nível e preservação ambiental. Agricultura 5.0, missão: planeta neutro + colheita infinita.</p>
+      <div class="btn-group">
+        <a href="#praticas" class="btn-primary"><i class="fas fa-bolt"></i> UPGRADE VERDE</a>
+        <a href="#desafios" class="btn-outline"><i class="fas fa-skull-crosswalk"></i> DERROTE OS DESAFIOS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATUS - 3 pilares -->
+  <section id="conceito">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-chart-simple"></i> ATRIBUTOS DO AGRO LENDÁRIO</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-tractor"></i></div>
+          <h3>AGRO FORTE</h3>
+          <p>➕ Produtividade máxima + tecnologia disruptiva + agricultura de precisão + domínio de mercado. O verdadeiro "endgame" da produção.</p>
         </div>
-    </header>
-
-    <main>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="container">
-                <h2>Agro forte,<br> futuro sustentável</h2>
-                <p>Equilíbrio estratégico entre alta produtividade e respeito ao meio ambiente. Inovação, tecnologia e práticas regenerativas para alimentar o mundo sem esgotar o planeta.</p>
-                <div class="btn-group">
-                    <a href="#praticas" class="btn-primary"><i class="fas fa-leaf"></i> Soluções sustentáveis</a>
-                    <a href="#desafios" class="btn-outline"><i class="fas fa-chart-line"></i> Desafios e caminhos</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONCEITO: agro forte + futuro sustentável -->
-        <section id="conceito">
-            <div class="container">
-                <h2 class="section-title">Dois lados do mesmo futuro</h2>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-tractor"></i></div>
-                        <h3>Agro Forte</h3>
-                        <p>Produtividade de ponta, agricultura digital, biotecnologia, competitividade global e geração de renda no campo. O motor da economia que não para de evoluir.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-seedling"></i></div>
-                        <h3>Futuro Sustentável</h3>
-                        <p>Preservação de nascentes, solos vivos, sequestro de carbono, energia limpa e compromisso com as próximas gerações. O planeta como aliado da produção.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-handshake"></i></div>
-                        <h3>Equilíbrio Essencial</h3>
-                        <p>Integração lavoura-pecuária-floresta (ILPF), bioinsumos e agricultura de precisão: o caminho que une alta performance e restauração ecológica.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRÁTICAS SUSTENTÁVEIS (TABELA COMPLETA) -->
-        <section id="praticas" class="bg-light">
-            <div class="container">
-                <h2 class="section-title">Práticas que transformam</h2>
-                <p class="section-sub">Iniciativas reais que aumentam a produtividade e, ao mesmo tempo, regeneram ecossistemas. Conheça as soluções que já são referência no Brasil e no mundo.</p>
-                <div class="table-wrapper">
-                    <table class="sustentabilidade-table">
-                        <thead>
-                            <tr>
-                                <th>Tecnologia / Prática</th>
-                                <th>Ganho produtivo</th>
-                                <th>Benefício ambiental</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>🌿 ILPF (Integração Lavoura-Pecuária-Floresta)</strong></td>
-                                <td>Renda diversificada, até 3 safras/ano</td>
-                                <td>Sequestro de carbono, recuperação de pastagens degradadas</td>
-                            </tr>
-                            <tr>
-                                <td><strong>🚜 Plantio Direto na Palha</strong></td>
-                                <td>Economia de combustível, maior infiltração de água</td>
-                                <td>Redução da erosão em até 80%, aumento de matéria orgânica</td>
-                            </tr>
-                            <tr>
-                                <td><strong>🐞 Bioinsumos e controle biológico</strong></td>
-                                <td>Redução de custos com químicos, menor resistência de pragas</td>
-                                <td>Preserva polinizadores, lençóis freáticos e biodiversidade</td>
-                            </tr>
-                            <tr>
-                                <td><strong>⚡ Biodigestores (biogás e biofertilizante)</strong></td>
-                                <td>Energia renovável na fazenda, fertilizante de alta qualidade</td>
-                                <td>Elimina poluição hídrica por dejetos animais</td>
-                            </tr>
-                            <tr>
-                                <td><strong>📡 Agricultura de precisão</strong></td>
-                                <td>Redução de insumos (30-60%), maior eficiência</td>
-                                <td>Uso racional de água e fertilizantes, menor pegada ecológica</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="text-center mt-4">
-                    <span class="badge"><i class="fas fa-chart-simple"></i> Carbono neutro + produtividade em alta: a nova revolução verde</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- EQUILÍBRIO EM DESTAQUE -->
-        <section id="equilibrio">
-            <div class="container">
-                <div class="equilibrio-card">
-                    <div class="grid-2">
-                        <div class="text-col">
-                            <h3><i class="fas fa-balance-scale"></i> Equilíbrio em números reais</h3>
-                            <p>O conceito de "Agro Forte e Futuro Sustentável" já é realidade em milhões de hectares. Propriedades que adotam sistemas regenerativos aumentaram a produtividade em até 30% e reduziram drasticamente as emissões de GEE.</p>
-                            <ul class="icon-list-sust">
-                                <li><i class="fas fa-tint"></i> <strong>40% menos consumo de água</strong> com manejo inteligente e irrigação de precisão</li>
-                                <li><i class="fas fa-cloud-sun"></i> <strong>+ 2,5 tCO₂e sequestradas por hectare/ano</strong> em sistemas ILPF bem manejados</li>
-                                <li><i class="fas fa-money-bill-trend-up"></i> <strong>Rentabilidade até 45% maior</strong> comparado ao modelo convencional</li>
-                                <li><i class="fas fa-tree"></i> <strong>12 milhões de ha</strong> no Brasil com Integração Lavoura-Pecuária-Floresta</li>
-                            </ul>
-                        </div>
-                        <div class="text-col">
-                            <div class="info-card">
-                                <i class="fas fa-chart-pie" style="font-size: 3rem; color: #246b36;"></i>
-                                <p style="font-weight: 700; margin-top: 12px;">Agricultura de baixo carbono</p>
-                                <p style="font-size: 0.9rem;">Planos ABC+ fomentam práticas sustentáveis com crédito e assistência técnica. O agro brasileiro pode ser protagonista da descarbonização.</p>
-                                <div class="highlight-box"><i class="fas fa-certificate"></i> 70% das emissões evitadas com boas práticas</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DESAFIOS REAIS E OPORTUNIDADES -->
-        <section id="desafios" class="bg-white">
-            <div class="container">
-                <h2 class="section-title">Desafios do equilíbrio</h2>
-                <p class="section-sub">Para consolidar o agro forte e sustentável, precisamos superar barreiras com inovação, políticas públicas e consciência coletiva.</p>
-                <div class="desafios-grid">
-                    <div class="desafio-item">
-                        <i class="fas fa-coins"></i>
-                        <h3>Custo de transição</h3>
-                        <p>Investir em ILPF, biodigestores ou certificações exige capital inicial, mas o retorno econômico e ambiental vem em poucos ciclos.</p>
-                    </div>
-                    <div class="desafio-item">
-                        <i class="fas fa-chalkboard-user"></i>
-                        <h3>Assistência técnica</h3>
-                        <p>Capacitação contínua é essencial, especialmente para médios e pequenos produtores. Extensão rural de qualidade multiplica resultados.</p>
-                    </div>
-                    <div class="desafio-item">
-                        <i class="fas fa-globe"></i>
-                        <h3>Rastreabilidade total</h3>
-                        <p>Combate ao desmatamento ilegal e grilagem exige cadeias 100% rastreáveis, da fazenda à prateleira — um ganho de imagem e responsabilidade.</p>
-                    </div>
-                    <div class="desafio-item">
-                        <i class="fas fa-temperature-high"></i>
-                        <h3>Eventos climáticos extremos</h3>
-                        <p>Seca e geadas exigem sistemas resilientes. O manejo regenerativo e a diversificação são os maiores aliados contra a instabilidade.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FUTURO + CTA FINAL -->
-        <div class="container" id="futuro">
-            <div class="cta-block">
-                <h3>O agro que alimenta o mundo<br> e cuida da casa comum</h3>
-                <p style="font-size: 1.2rem; max-width: 680px; margin: 0 auto;">A ciência, a tecnologia e a sabedoria do produtor rural mostram que produção e meio ambiente não competem — se complementam. O futuro sustentável começa agora, no campo.</p>
-                <a href="#" class="btn-cta" id="ctaButton"><i class="fas fa-seedling"></i> Comprometer-se com o equilíbrio</a>
-                <div class="mt-4">
-                    <span class="badge badge-green">#CarbonoNeutro</span>
-                    <span class="badge badge-green">#AgroVerde</span>
-                    <span class="badge badge-green">#ILPF</span>
-                </div>
-            </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+          <h3>SUSTENTÁVEL</h3>
+          <p>🌱 Sequestro de carbono, solo vivo, preservação hídrica e energia limpa. Missão: regenerar biomas e conquistar o futuro.</p>
         </div>
-    </main>
-
-    <footer>
-        <div class="container footer-flex">
-            <div><i class="fas fa-leaf"></i> Agro Forte · Futuro Sustentável</div>
-            <div>🌱 Equilíbrio entre produção e meio ambiente — compromisso com a próxima geração</div>
-            <div>🌎 Agricultura regenerativa | Baixo carbono | Bioeconomia</div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-hand-peace"></i></div>
+          <h3>EQUILÍBRIO PERFEITO</h3>
+          <p>⚖️ Sistema ILPF, biofábricas, rastreabilidade blockchain. O combo definitivo para vencer o jogo do agro sustentável.</p>
         </div>
-        <div class="copyright">© 2026 · Conteúdo institucional para inspirar a transição agroecológica eficiente.</div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
+  <!-- SKILLS / PRÁTICAS COM TABELA NEON -->
+  <section id="praticas">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-dice-d6"></i> HABILIDADES DESBLOQUEADAS</h2>
+      <p class="section-sub">Essas práticas aumentam sua nota de sustentabilidade e geram vantagem competitiva +50% em produtividade.</p>
+      <div class="table-wrapper">
+        <table class="sustentabilidade-table">
+          <thead>
+            <tr><th>🛡️ TÉCNICA</th><th>⚡ BÔNUS DE PRODUÇÃO</th><th>🌍 ECO IMPACTO</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><i class="fas fa-tree"></i> ILPF (Lavoura-Pecuária-Floresta)</td><td>+3 colheitas/ano, solo recuperado</td><td>Sequestro de carbono + 2,5 tCO2/ha</td></tr>
+            <tr><td><i class="fas fa-seedling"></i> Plantio Direto na Palha</td><td>economia de combustível -30%</td><td>redução da erosão em 85%</td></tr>
+            <tr><td><i class="fas fa-biohazard"></i> Bioinsumos + biológicos</td><td>menos custo com químicos (-40%)</td><td>protege polinizadores e aquíferos</td></tr>
+            <tr><td><i class="fas fa-charging-station"></i> Biodigestores (Biogás)</td><td>energia limpa e biofertilizante</td><td>zero poluição hídrica por dejetos</td></tr>
+            <tr><td><i class="fas fa-microchip"></i> Agricultura de precisão 5.0</td><td>uso eficiente de insumos (-50%)</td><td>pegada hídrica reduzida</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top: 30px; text-align: center;">
+        <span class="badge"><i class="fas fa-trophy"></i> A conquista "Agro Neutro" está a 1 UP de distância</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOSS: equilíbrio final -->
+  <section id="equilibrio">
+    <div class="container">
+      <div class="equilibrio-card">
+        <div class="grid-2">
+          <div class="text-col">
+            <h3><i class="fas fa-dragon"></i> CHEFÃO DO EQUILÍBRIO</h3>
+            <p>Derrote o mito de que produção e meio ambiente não podem coexistir. Com sistemas integrados e tecnologia verde, o Brasil lidera o ranking mundial de agro de baixo carbono.</p>
+            <ul class="icon-list-sust">
+              <li><i class="fas fa-leaf"></i> <strong>Carbono negativo:</strong> mais de 14 milhões de hectares em ILPF</li>
+              <li><i class="fas fa-tint"></i> <strong>+40% eficiência hídrica</strong> com manejo digital</li>
+              <li><i class="fas fa-chart-line"></i> <strong>Rentabilidade 50% maior</strong> que sistemas convencionais</li>
+              <li><i class="fas fa-globe"></i> Meta 2030: neutralizar emissões da agricultura tropical</li>
+            </ul>
+          </div>
+          <div class="text-col">
+            <div style="background: #0f2c0b; border-radius: 24px; padding: 24px; border: 1px solid #8cff6e; text-align: center;">
+              <i class="fas fa-gamepad" style="font-size: 3rem; color: #bbff88;"></i>
+              <p style="font-weight: 700; margin-top: 12px;">[ BOSS DERRUBADO ]</p>
+              <p>Sistema regenerativo + tecnologia = vitória contra o desmatamento e a degradação.</p>
+              <div class="badge" style="margin-top: 16px;"><i class="fas fa-star"></i> +1000 pts de sustentabilidade</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTS / DESAFIOS -->
+  <section id="desafios">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-shield-halbed"></i> QUESTS SECUNDÁRIAS: DESAFIOS REAIS</h2>
+      <p class="section-sub">Para zerar o game do agro sustentável, precisamos superar estes obstáculos com cooperação e inovação.</p>
+      <div class="desafios-grid">
+        <div class="desafio-item"><i class="fas fa-coins"></i><h3>💰 Custo Inicial</h3><p>Investimento em ILPF e biológicos é alto, mas ROI acelerado com crédito verde ABC+.</p></div>
+        <div class="desafio-item"><i class="fas fa-chalkboard-user"></i><h3>📚 Assistência Técnica</h3><p>Capacitação rural em massa é essencial para todos os níveis de produtores.</p></div>
+        <div class="desafio-item"><i class="fas fa-map"></i><h3>🌲 Rastreabilidade Total</h3><p>Cadeias 100% monitoradas para eliminar desmatamento ilegal e agregar valor.</p></div>
+        <div class="desafio-item"><i class="fas fa-temperature-low"></i><h3>🌪️ Extremos climáticos</h3><p>Adotar sistemas resilientes é a melhor estratégia de defesa contra geadas e secas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANK S - FUTURO + CTA -->
+  <div class="container" id="futuro">
+    <div class="cta-block">
+      <h3><i class="fas fa-crown"></i> RANK S: FUTURO SUSTENTÁVEL</h3>
+      <p style="font-size: 1.2rem;">O agro brasileiro pode ser o protagonista global da bioeconomia. Produzir alimentos, energia e fibras enquanto recupera biomas é o verdadeiro high score.</p>
+      <a href="#" class="btn-cta"><i class="fas fa-rocket"></i> ACEITAR MISSÃO: AGRO + VERDE</a>
+      <div style="margin-top: 28px;">
+        <span class="badge"><i class="fas fa-bolt"></i> #ModoGamerAtivado</span>
+        <span class="badge" style="margin-left: 10px;"><i class="fas fa-leaf"></i> #NetZero2050</span>
+        <span class="badge" style="margin-left: 10px;"><i class="fas fa-tachometer-alt"></i> #AgroTech</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+    <div><i class="fas fa-gamepad"></i> Agro Forte [Gamer Edition] · Missão Sustentável</div>
+    <div>⚡ Equilíbrio produção x meio ambiente — conquiste o futuro</div>
+    <div><i class="fas fa-code-branch"></i> GitHub Pages ready</div>
+  </div>
+  <div style="margin-top: 28px; font-size: 0.8rem;">© 2026 · Agro Forte: high score de sustentabilidade. Derrote o desperdício, salve o bioma.</div>
+</footer>
+
 </body>
 </html>
