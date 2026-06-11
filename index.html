@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Agro Forte | Modo Gamer: Missão Sustentável</title>
-  <!-- Google Fonts (Orbitron para estilo gamer) + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>AGRO FORTE | Modo Gamer: Missão Sustentável</title>
+  <!-- Fonts: Pixel / Cyberpunk -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,35 +15,41 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #0a0c0b;
-      background-image: radial-gradient(circle at 15% 30%, rgba(30, 80, 30, 0.2) 0%, #030503 90%);
-      color: #d0ffd0;
-      scroll-behavior: smooth;
+      background: #050b05;
+      background-image: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.03) 0px, rgba(0, 255, 0, 0.03) 2px, transparent 2px, transparent 6px);
+      color: #b3ffa7;
+      font-family: 'Share Tech Mono', monospace;
       line-height: 1.5;
+      scroll-behavior: smooth;
     }
 
-    /* estilo gamer neon */
-    .glow-text {
-      text-shadow: 0 0 5px #87f76e, 0 0 10px #4f9e2e;
+    /* Efeito glitch no título */
+    @keyframes glitch {
+      0% { text-shadow: -2px 0 #ff00de, 2px 0 #00ff99; }
+      50% { text-shadow: 2px 0 #ff00de, -2px 0 #00ff99; }
+      100% { text-shadow: -2px 0 #ff00de, 2px 0 #00ff99; }
+    }
+
+    .glitch {
+      animation: glitch 0.3s infinite;
     }
 
     .container {
-      max-width: 1280px;
+      max-width: 1300px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 24px;
     }
 
-    /* Header cyber */
+    /* Header cyberpunk */
     header {
-      background: rgba(5, 15, 5, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid #4cd137;
-      box-shadow: 0 0 12px rgba(76, 209, 55, 0.4);
+      background: #030a03e6;
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid #39ff14;
+      box-shadow: 0 0 20px #39ff1470;
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: 16px 0;
+      padding: 18px 0;
     }
 
     .nav-bar {
@@ -51,76 +57,104 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      gap: 16px;
     }
 
     .logo h1 {
-      font-family: 'Orbitron', monospace;
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      background: linear-gradient(135deg, #b3ff8f, #3ccf1e);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, #b9ff8a, #2eff1a);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 8px #3ccf1e60;
+      text-shadow: 0 0 8px #2eff2e;
+      letter-spacing: 1px;
     }
 
     .logo span {
-      color: #b6ff7a;
-      text-shadow: 0 0 5px #aaff66;
+      color: #fbffb4;
+      text-shadow: 0 0 5px #eaff00;
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       font-family: 'Orbitron', monospace;
-      font-weight: 500;
-      color: #b4ffb0;
+      font-weight: 600;
+      color: #b2ff9e;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 1px;
+      padding: 6px 12px;
+      border: 1px solid #39ff14;
+      background: #0a1f0a80;
       transition: 0.2s;
-      padding: 6px 0;
-      border-bottom: 2px solid transparent;
+      box-shadow: 0 0 4px #39ff14;
     }
 
     .nav-links a:hover {
-      color: #f0ff66;
-      text-shadow: 0 0 4px #b3ff66;
-      border-bottom-color: #90ff4e;
+      background: #39ff14;
+      color: #010d01;
+      box-shadow: 0 0 12px #6eff3a;
+      text-shadow: none;
     }
 
-    /* Hero - estilo boss battle */
+    /* Hero - painel gamer */
     .hero {
-      background: radial-gradient(ellipse at 70% 30%, #142c12, #020703);
       padding: 90px 0;
       text-align: center;
-      border-bottom: 2px solid #5cff3a;
-      box-shadow: inset 0 0 40px rgba(0,0,0,0.8), 0 0 18px #2eff5e30;
+      background: radial-gradient(circle at 20% 30%, #0d2b0d, #020702);
+      border-bottom: 2px solid #5eff2e;
+      position: relative;
     }
 
     .hero h2 {
-      font-family: 'Orbitron', monospace;
-      font-size: 3.2rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, #e5ffb3, #6eff3c);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: 3px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 2.2rem;
+      color: #c5ff92;
+      text-shadow: 0 0 8px #39ff14, 0 0 18px #39ff14;
       margin-bottom: 20px;
     }
 
     .hero p {
-      font-size: 1.25rem;
-      max-width: 720px;
-      margin: 0 auto 32px;
-      color: #caffb9;
-      text-shadow: 0 0 2px #000;
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 auto 30px;
+      background: #0a180ab3;
+      padding: 12px 20px;
+      border-left: 4px solid #39ff14;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .health-bar {
+      width: 260px;
+      margin: 20px auto;
+      background: #1e2a1a;
+      border: 2px solid #39ff14;
+      border-radius: 20px;
+      padding: 4px;
+    }
+    .health-fill {
+      width: 88%;
+      background: #00ff37;
+      height: 14px;
+      border-radius: 12px;
+      box-shadow: 0 0 6px #7eff46;
+    }
+    .xp-bar {
+      width: 240px;
+      margin: 8px auto;
+      background: #2a2520;
+      border: 1px solid #ffcc33;
+    }
+    .xp-fill {
+      width: 72%;
+      background: #ffcc33;
+      height: 8px;
     }
 
     .btn-group {
@@ -128,269 +162,225 @@
       gap: 20px;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 20px;
     }
 
-    .btn-primary {
-      background: rgba(30, 80, 30, 0.7);
-      border: 2px solid #71ff52;
-      color: #deffcf;
-      padding: 12px 32px;
-      border-radius: 0px;
+    .btn-primary, .btn-outline {
       font-family: 'Orbitron', monospace;
-      font-weight: 700;
+      padding: 12px 28px;
+      font-weight: bold;
       text-decoration: none;
-      backdrop-filter: blur(4px);
       transition: 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      box-shadow: 0 0 6px #58ff3a;
+      gap: 10px;
+      letter-spacing: 1px;
     }
 
+    .btn-primary {
+      background: #142e10;
+      border: 2px solid #3eff2a;
+      color: #e2ffcc;
+      box-shadow: 0 0 8px #28f018;
+    }
     .btn-primary:hover {
-      background: #4cd137cc;
-      border-color: #ffff99;
-      box-shadow: 0 0 14px #86ff6b;
+      background: #3eff2a;
+      color: #021a00;
+      box-shadow: 0 0 20px #8eff66;
       transform: scale(1.02);
-      color: black;
     }
-
     .btn-outline {
-      background: transparent;
-      border: 2px solid #79f75a;
-      color: #c6ffb0;
-      padding: 10px 32px;
-      font-family: 'Orbitron', monospace;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-      box-shadow: 0 0 4px #5eff40;
+      background: #070f07b3;
+      border: 2px solid #b0ff8c;
+      color: #c1ffa3;
     }
-
     .btn-outline:hover {
-      background: #77ff5544;
-      border-color: #ffff88;
+      background: #b0ff8c44;
+      border-color: #ffff84;
       text-shadow: 0 0 3px black;
     }
 
-    /* seções */
     section {
-      padding: 80px 0;
-      border-bottom: 1px dashed #3b8c2a;
+      padding: 70px 0;
+      border-bottom: 1px dashed #2c7a1f;
     }
 
     .section-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 2.5rem;
-      font-weight: 800;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.6rem;
       text-align: center;
-      letter-spacing: 2px;
-      background: linear-gradient(125deg, #caffa0, #5cd632);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: #b3ff7a;
+      text-shadow: 0 0 6px #2eff1e;
       margin-bottom: 20px;
     }
 
     .section-sub {
       text-align: center;
-      max-width: 760px;
-      margin: 0 auto 48px auto;
-      font-size: 1.1rem;
-      color: #b9e6a8;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 0.9rem;
+      color: #b3f6a3;
     }
 
-    /* Cards estilo power-up */
+    /* CARDS GAMER */
     .cards-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
+      gap: 28px;
       justify-content: center;
     }
-
     .card {
-      background: #0e1f0cd9;
-      backdrop-filter: blur(2px);
-      border: 1px solid #5bff3e;
-      border-radius: 16px;
-      padding: 32px 24px;
-      flex: 1 1 280px;
-      transition: 0.25s;
+      background: #0c150bd4;
+      border: 2px solid #45ff2a;
+      border-radius: 12px;
+      padding: 28px 20px;
+      flex: 1 1 270px;
       text-align: center;
-      box-shadow: 0 0 8px rgba(0,255,0,0.2);
+      backdrop-filter: blur(2px);
+      transition: 0.2s;
+      box-shadow: 0 0 6px #2eff1a;
     }
-
     .card:hover {
       transform: translateY(-8px);
-      border-color: #caff7a;
-      box-shadow: 0 0 22px #86ff7a;
+      border-color: #f5ff8e;
+      box-shadow: 0 0 20px #6eff40;
     }
-
     .card-icon {
       font-size: 3rem;
-      color: #7aff55;
-      text-shadow: 0 0 5px #32cd32;
-      margin-bottom: 20px;
+      color: #8eff62;
+      text-shadow: 0 0 6px #00ff40;
     }
-
     .card h3 {
       font-family: 'Orbitron', monospace;
-      font-size: 1.7rem;
-      margin-bottom: 15px;
-      color: #d9ffc4;
+      margin: 15px 0;
+      font-size: 1.4rem;
     }
 
-    /* Tabela neon */
+    /* Tabela estilo raid */
     .table-wrapper {
-      background: #081207cc;
-      border-radius: 20px;
+      background: #0a1c07c9;
+      border: 2px solid #2eff1a;
+      border-radius: 16px;
       overflow-x: auto;
-      border: 1px solid #52d63e;
-      box-shadow: 0 0 12px #2aa51e;
+      box-shadow: 0 0 12px #2fa81b;
     }
-
     .sustentabilidade-table {
       width: 100%;
       border-collapse: collapse;
-      font-family: 'Inter', monospace;
+      font-family: 'Share Tech Mono', monospace;
     }
-
-    .sustentabilidade-table th,
-    .sustentabilidade-table td {
-      padding: 18px 20px;
+    .sustentabilidade-table th, .sustentabilidade-table td {
+      padding: 16px 18px;
       text-align: left;
-      border-bottom: 1px solid #3d9440;
-      color: #ddffcf;
+      border-bottom: 1px solid #47963a;
+      color: #d5ffc4;
     }
-
     .sustentabilidade-table th {
-      background: #173d14;
+      background: #154010;
       font-family: 'Orbitron', monospace;
-      color: #c7ff94;
-      font-weight: 700;
-      letter-spacing: 1px;
+      color: #b7ff7a;
+      font-size: 0.9rem;
     }
-
     .badge {
-      background: #193d16;
-      border: 1px solid #76ff55;
-      border-radius: 40px;
-      padding: 6px 18px;
-      font-weight: bold;
-      color: #c5ffa2;
-    }
-
-    /* Equilíbrio level up */
-    .equilibrio-card {
-      background: #0e2210b3;
-      border: 2px solid #61ff47;
+      background: #152f0f;
+      border: 1px solid #7bff58;
       border-radius: 32px;
-      padding: 48px 40px;
-      margin: 20px 0;
-      box-shadow: 0 0 18px #38ff1e40;
+      padding: 6px 16px;
+      font-weight: bold;
+      font-family: 'Orbitron', monospace;
     }
 
+    /* EQUILÍBRIO - estilo arena */
+    .arena-card {
+      background: #0b1809e6;
+      border: 3px solid #6eff44;
+      border-radius: 28px;
+      padding: 40px 36px;
+      margin: 20px 0;
+      box-shadow: 0 0 25px #56ff2e;
+    }
     .grid-2 {
       display: flex;
-      gap: 48px;
+      gap: 40px;
       flex-wrap: wrap;
-      align-items: center;
     }
-
     .text-col h3 {
-      font-family: 'Orbitron', monospace;
-      font-size: 2rem;
-      color: #aaff86;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: #d3ff9e;
     }
-
     .icon-list-sust {
       list-style: none;
-      padding: 0;
+      margin-top: 20px;
     }
-
     .icon-list-sust li {
       margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .icon-list-sust i {
-      color: #7aff5e;
-      font-size: 1.5rem;
+      color: #88ff62;
+      font-size: 1.4rem;
     }
 
-    /* Desafios grid - estilo conquistas */
+    /* desafios grid */
     .desafios-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
     }
-
     .desafio-item {
-      background: #0a1a07;
-      border: 1px solid #61d63e;
-      border-radius: 24px;
-      padding: 28px 20px;
+      background: #091106c9;
+      border: 1px solid #5bff3b;
+      border-radius: 20px;
+      padding: 24px 16px;
       text-align: center;
-      transition: 0.2s;
     }
-
     .desafio-item i {
-      font-size: 2.5rem;
-      color: #f1c40f;
-      text-shadow: 0 0 6px #ffcc33;
+      font-size: 2.3rem;
+      color: #ffbf40;
     }
 
-    /* CTA boss final */
+    /* CTA FINAL */
     .cta-block {
-      background: #092006e0;
-      border: 2px solid #8aff6e;
+      background: #0a1d06dd;
+      border: 3px solid #93ff6b;
       text-align: center;
-      border-radius: 40px;
+      border-radius: 36px;
       margin: 40px auto 60px;
-      padding: 60px 32px;
-      box-shadow: 0 0 25px #6eff4b;
+      padding: 55px 28px;
+      box-shadow: 0 0 30px #48ff2a;
     }
-
     .btn-cta {
-      background: #142b0f;
-      border: 2px solid #cbff97;
-      color: #ecffd3;
-      padding: 12px 36px;
+      background: #1f4217;
+      border: 2px solid #cbff88;
+      color: #f2ffe0;
+      padding: 12px 32px;
       font-family: 'Orbitron', monospace;
       font-weight: bold;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      transition: 0.2s;
+      margin-top: 20px;
     }
-
     .btn-cta:hover {
-      background: #69ff4d;
-      color: #032000;
-      box-shadow: 0 0 20px #b2ff82;
+      background: #7aff5a;
+      color: #031f00;
+      box-shadow: 0 0 25px #aaff77;
     }
-
     footer {
-      background: #030703;
-      border-top: 2px solid #60ff3c;
-      padding: 40px 0;
+      background: #010d01;
+      border-top: 2px solid #3eff2a;
+      padding: 32px 0;
       text-align: center;
-      color: #a5e096;
+      font-family: 'Share Tech Mono', monospace;
     }
-
-    @media (max-width: 780px) {
-      .hero h2 {
-        font-size: 2rem;
-      }
-      .section-title {
-        font-size: 1.9rem;
-      }
-      .equilibrio-card {
-        padding: 28px 20px;
-      }
+    @media (max-width: 720px) {
+      .hero h2 { font-size: 1.3rem; }
+      .section-title { font-size: 1.1rem; }
     }
   </style>
 </head>
@@ -399,13 +389,13 @@
 <header>
   <div class="container nav-bar">
     <div class="logo">
-      <h1>AGRO<span>FORTE</span> <span style="font-size:0.8rem;">[GV]</span></h1>
+      <h1><i class="fas fa-gamepad"></i> AGRO<span>FORTE</span> [GMR]</h1>
     </div>
     <div class="nav-links">
-      <a href="#conceito"><i class="fas fa-gamepad"></i> STATUS</a>
-      <a href="#praticas">SKILLS</a>
-      <a href="#equilibrio">BOSS</a>
-      <a href="#desafios">QUESTS</a>
+      <a href="#conceito">STATUS</a>
+      <a href="#praticas">HABILIDADES</a>
+      <a href="#equilibrio">CHEFÃO</a>
+      <a href="#desafios">MISSÕES</a>
       <a href="#futuro">RANK S</a>
     </div>
   </div>
@@ -414,85 +404,70 @@
 <main>
   <section class="hero">
     <div class="container">
-      <h2><i class="fas fa-leaf"></i> AGRO FORTE <br> FUTURO SUSTENTÁVEL</h2>
-      <p>[ MODO GAMER ATIVADO ] Equilíbrio entre produção de alto nível e preservação ambiental. Agricultura 5.0, missão: planeta neutro + colheita infinita.</p>
+      <h2><i class="fas fa-leaf"></i> AGRO FORTE<br> FUTURO SUSTENTÁVEL</h2>
+      <div class="health-bar"><div class="health-fill"></div></div>
+      <div class="xp-bar"><div class="xp-fill"></div></div>
+      <p>🔫 MODO GAMER ATIVADO • Equilíbrio entre produção máxima e defesa do meio ambiente. Vença a fase do carbono neutro com agro tecnologia + regeneração.</p>
       <div class="btn-group">
         <a href="#praticas" class="btn-primary"><i class="fas fa-bolt"></i> UPGRADE VERDE</a>
-        <a href="#desafios" class="btn-outline"><i class="fas fa-skull-crosswalk"></i> DERROTE OS DESAFIOS</a>
+        <a href="#desafios" class="btn-outline"><i class="fas fa-skull"></i> DERROTE OS BUGS</a>
       </div>
     </div>
   </section>
 
-  <!-- STATUS - 3 pilares -->
+  <!-- STATUS -->
   <section id="conceito">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-chart-simple"></i> ATRIBUTOS DO AGRO LENDÁRIO</h2>
+      <div class="section-title"><i class="fas fa-chart-line"></i> ATRIBUTOS PRINCIPAIS</div>
       <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-tractor"></i></div>
-          <h3>AGRO FORTE</h3>
-          <p>➕ Produtividade máxima + tecnologia disruptiva + agricultura de precisão + domínio de mercado. O verdadeiro "endgame" da produção.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
-          <h3>SUSTENTÁVEL</h3>
-          <p>🌱 Sequestro de carbono, solo vivo, preservação hídrica e energia limpa. Missão: regenerar biomas e conquistar o futuro.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-hand-peace"></i></div>
-          <h3>EQUILÍBRIO PERFEITO</h3>
-          <p>⚖️ Sistema ILPF, biofábricas, rastreabilidade blockchain. O combo definitivo para vencer o jogo do agro sustentável.</p>
-        </div>
+        <div class="card"><div class="card-icon"><i class="fas fa-tractor"></i></div><h3>AGRO FORTE</h3><p>Alta produtividade, agricultura digital + biotecnologia. competitividade global.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-globe-americas"></i></div><h3>SUSTENTÁVEL</h3><p>Sequestro de carbono, solo vivo, energia limpa. Preserva biomas.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-hand-peace"></i></div><h3>EQUILÍBRIO</h3><p>ILPF, bioinsumos, precisão: o combo que derrota o desmatamento.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS / PRÁTICAS COM TABELA NEON -->
+  <!-- SKILLS / TABELA -->
   <section id="praticas">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-dice-d6"></i> HABILIDADES DESBLOQUEADAS</h2>
-      <p class="section-sub">Essas práticas aumentam sua nota de sustentabilidade e geram vantagem competitiva +50% em produtividade.</p>
+      <div class="section-title"><i class="fas fa-dice-d20"></i> SKILLS DESBLOQUEADAS</div>
+      <div class="section-sub">Essas técnicas aumentam o level de sustentabilidade e dropam +50% de produtividade.</div>
       <div class="table-wrapper">
         <table class="sustentabilidade-table">
-          <thead>
-            <tr><th>🛡️ TÉCNICA</th><th>⚡ BÔNUS DE PRODUÇÃO</th><th>🌍 ECO IMPACTO</th></tr>
-          </thead>
+          <thead><tr><th>🛡️ TÉCNICA</th><th>⚡ BÔNUS PROD</th><th>🌿 ECO IMPACTO</th></tr></thead>
           <tbody>
-            <tr><td><i class="fas fa-tree"></i> ILPF (Lavoura-Pecuária-Floresta)</td><td>+3 colheitas/ano, solo recuperado</td><td>Sequestro de carbono + 2,5 tCO2/ha</td></tr>
-            <tr><td><i class="fas fa-seedling"></i> Plantio Direto na Palha</td><td>economia de combustível -30%</td><td>redução da erosão em 85%</td></tr>
-            <tr><td><i class="fas fa-biohazard"></i> Bioinsumos + biológicos</td><td>menos custo com químicos (-40%)</td><td>protege polinizadores e aquíferos</td></tr>
-            <tr><td><i class="fas fa-charging-station"></i> Biodigestores (Biogás)</td><td>energia limpa e biofertilizante</td><td>zero poluição hídrica por dejetos</td></tr>
-            <tr><td><i class="fas fa-microchip"></i> Agricultura de precisão 5.0</td><td>uso eficiente de insumos (-50%)</td><td>pegada hídrica reduzida</td></tr>
+            <tr><td><i class="fas fa-tree"></i> ILPF (Integração)</td><td>+3 safras/ano</td><td>Sequestro 2.5t CO2/ha</td></tr>
+            <tr><td><i class="fas fa-seedling"></i> Plantio Direto</td><td>Economia -30% combustível</td><td>Erosão -85%</td></tr>
+            <tr><td><i class="fas fa-biohazard"></i> Bioinsumos</td><td>Redução custos -40%</td><td>Protege polinizadores</td></tr>
+            <tr><td><i class="fas fa-charging-station"></i> Biodigestores</td><td>Biogás + biofertilizante</td><td>Zero poluição hídrica</td></tr>
+            <tr><td><i class="fas fa-microchip"></i> Agricultura Precisão</td><td>Eficiência insumos +50%</td><td>Pegada hídrica reduzida</td></tr>
           </tbody>
         </table>
       </div>
-      <div style="margin-top: 30px; text-align: center;">
-        <span class="badge"><i class="fas fa-trophy"></i> A conquista "Agro Neutro" está a 1 UP de distância</span>
-      </div>
+      <div style="margin-top: 28px; text-align: center;"><span class="badge"><i class="fas fa-trophy"></i> A conquista "Fazenda Carbono Neutro" está próxima</span></div>
     </div>
   </section>
 
-  <!-- BOSS: equilíbrio final -->
+  <!-- ARENA DO EQUILÍBRIO -->
   <section id="equilibrio">
     <div class="container">
-      <div class="equilibrio-card">
+      <div class="arena-card">
         <div class="grid-2">
           <div class="text-col">
-            <h3><i class="fas fa-dragon"></i> CHEFÃO DO EQUILÍBRIO</h3>
-            <p>Derrote o mito de que produção e meio ambiente não podem coexistir. Com sistemas integrados e tecnologia verde, o Brasil lidera o ranking mundial de agro de baixo carbono.</p>
+            <h3><i class="fas fa-dragon"></i> BOSS: DESIGUALDADE AMBIENTAL</h3>
+            <p>Derrotamos o mito de que produção e preservação não combinam. Com ILPF, rastreabilidade e manejo regenerativo o agro brasileiro vira referência global.</p>
             <ul class="icon-list-sust">
-              <li><i class="fas fa-leaf"></i> <strong>Carbono negativo:</strong> mais de 14 milhões de hectares em ILPF</li>
-              <li><i class="fas fa-tint"></i> <strong>+40% eficiência hídrica</strong> com manejo digital</li>
-              <li><i class="fas fa-chart-line"></i> <strong>Rentabilidade 50% maior</strong> que sistemas convencionais</li>
-              <li><i class="fas fa-globe"></i> Meta 2030: neutralizar emissões da agricultura tropical</li>
+              <li><i class="fas fa-chart-simple"></i> <strong>+40% eficiência hídrica</strong></li>
+              <li><i class="fas fa-coins"></i> <strong>Rentabilidade 50% maior</strong> vs convencional</li>
+              <li><i class="fas fa-cloud-moon"></i> <strong>14 milhões ha</strong> em sistemas sustentáveis</li>
             </ul>
           </div>
           <div class="text-col">
-            <div style="background: #0f2c0b; border-radius: 24px; padding: 24px; border: 1px solid #8cff6e; text-align: center;">
-              <i class="fas fa-gamepad" style="font-size: 3rem; color: #bbff88;"></i>
-              <p style="font-weight: 700; margin-top: 12px;">[ BOSS DERRUBADO ]</p>
-              <p>Sistema regenerativo + tecnologia = vitória contra o desmatamento e a degradação.</p>
-              <div class="badge" style="margin-top: 16px;"><i class="fas fa-star"></i> +1000 pts de sustentabilidade</div>
+            <div style="background: #0d1c09; border-radius: 24px; padding: 22px; border: 2px solid #70ff5a; text-align: center;">
+              <i class="fas fa-gamepad" style="font-size: 3rem; color: #bcff83;"></i>
+              <p style="font-weight: bold;">[ BOSS DERRUBADO ]</p>
+              <p>Equilíbrio entre produção e meio ambiente = WIN</p>
+              <div class="badge"><i class="fas fa-star"></i> +1500 XP SUSTENTÁVEL</div>
             </div>
           </div>
         </div>
@@ -503,27 +478,27 @@
   <!-- QUESTS / DESAFIOS -->
   <section id="desafios">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-shield-halbed"></i> QUESTS SECUNDÁRIAS: DESAFIOS REAIS</h2>
-      <p class="section-sub">Para zerar o game do agro sustentável, precisamos superar estes obstáculos com cooperação e inovação.</p>
+      <div class="section-title"><i class="fas fa-shield-halbed"></i> MISSÕES SECUNDÁRIAS</div>
+      <div class="section-sub">Supere esses obstáculos para zerar o game do agro sustentável.</div>
       <div class="desafios-grid">
-        <div class="desafio-item"><i class="fas fa-coins"></i><h3>💰 Custo Inicial</h3><p>Investimento em ILPF e biológicos é alto, mas ROI acelerado com crédito verde ABC+.</p></div>
-        <div class="desafio-item"><i class="fas fa-chalkboard-user"></i><h3>📚 Assistência Técnica</h3><p>Capacitação rural em massa é essencial para todos os níveis de produtores.</p></div>
-        <div class="desafio-item"><i class="fas fa-map"></i><h3>🌲 Rastreabilidade Total</h3><p>Cadeias 100% monitoradas para eliminar desmatamento ilegal e agregar valor.</p></div>
-        <div class="desafio-item"><i class="fas fa-temperature-low"></i><h3>🌪️ Extremos climáticos</h3><p>Adotar sistemas resilientes é a melhor estratégia de defesa contra geadas e secas.</p></div>
+        <div class="desafio-item"><i class="fas fa-coins"></i><h3>💰 CUSTO INICIAL</h3><p>Crédito verde e assistência para transição sustentável.</p></div>
+        <div class="desafio-item"><i class="fas fa-chalkboard-user"></i><h3>📚 CAPACITAÇÃO</h3><p>Treinar produtores em boas práticas é essencial.</p></div>
+        <div class="desafio-item"><i class="fas fa-map"></i><h3>🌲 RASTREABILIDADE</h3><p>Cadeias 100% monitoradas contra desmatamento ilegal.</p></div>
+        <div class="desafio-item"><i class="fas fa-temperature-low"></i><h3>🌪️ EXTREMOS CLIMÁTICOS</h3><p>Resiliência com sistemas regenerativos.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- RANK S - FUTURO + CTA -->
+  <!-- RANK S - FUTURO -->
   <div class="container" id="futuro">
     <div class="cta-block">
-      <h3><i class="fas fa-crown"></i> RANK S: FUTURO SUSTENTÁVEL</h3>
-      <p style="font-size: 1.2rem;">O agro brasileiro pode ser o protagonista global da bioeconomia. Produzir alimentos, energia e fibras enquanto recupera biomas é o verdadeiro high score.</p>
-      <a href="#" class="btn-cta"><i class="fas fa-rocket"></i> ACEITAR MISSÃO: AGRO + VERDE</a>
-      <div style="margin-top: 28px;">
-        <span class="badge"><i class="fas fa-bolt"></i> #ModoGamerAtivado</span>
-        <span class="badge" style="margin-left: 10px;"><i class="fas fa-leaf"></i> #NetZero2050</span>
-        <span class="badge" style="margin-left: 10px;"><i class="fas fa-tachometer-alt"></i> #AgroTech</span>
+      <h3 style="font-family: 'Press Start 2P'; font-size: 1.3rem;"><i class="fas fa-crown"></i> RANK S: FUTURO SUSTENTÁVEL</h3>
+      <p style="font-size: 1rem; max-width: 600px; margin: 18px auto;">O agro brasileiro pode liderar a bioeconomia. Alimentar o mundo enquanto regenera o planeta é o true ending dessa jornada.</p>
+      <a href="#" class="btn-cta"><i class="fas fa-rocket"></i> ACEITAR MISSÃO AGRO +VERDE</a>
+      <div style="margin-top: 30px;">
+        <span class="badge"><i class="fas fa-bolt"></i> #ModoGamerON</span>
+        <span class="badge" style="margin-left: 12px;"><i class="fas fa-leaf"></i> #NetZero2050</span>
+        <span class="badge" style="margin-left: 12px;"><i class="fas fa-tachometer-alt"></i> #AgroTech</span>
       </div>
     </div>
   </div>
@@ -531,11 +506,11 @@
 
 <footer>
   <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-    <div><i class="fas fa-gamepad"></i> Agro Forte [Gamer Edition] · Missão Sustentável</div>
-    <div>⚡ Equilíbrio produção x meio ambiente — conquiste o futuro</div>
-    <div><i class="fas fa-code-branch"></i> GitHub Pages ready</div>
+    <div><i class="fas fa-gamepad"></i> AGRO FORTE • GAMER EDITION</div>
+    <div>⚡ Equilíbrio produção x meio ambiente — conquiste o high score</div>
+    <div><i class="fab fa-github"></i> GitHub Pages Ready</div>
   </div>
-  <div style="margin-top: 28px; font-size: 0.8rem;">© 2026 · Agro Forte: high score de sustentabilidade. Derrote o desperdício, salve o bioma.</div>
+  <div style="margin-top: 20px; font-size: 0.7rem;">© 2026 • Agro Forte: missão sustentabilidade. Plante o futuro, derrote o desperdício.</div>
 </footer>
 
 </body>
